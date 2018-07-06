@@ -348,7 +348,7 @@ public class Functions {
     public static final Function LENGTH = new SysFunction(1) {
         @Override
         protected Expr fn(List<Literal> values) {
-            CharSeq y =  new CharSeq(values.get(0).stringValue());
+            CharSeq y =  new CharSeq(((Text)values.get(0)).stringValue());
             return makeInt(y.len());
         }        
     };

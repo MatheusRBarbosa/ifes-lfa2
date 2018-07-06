@@ -50,8 +50,7 @@ public class CharSeq extends Text implements Comparable<CharSeq> {
     }
     
     public int len() {
-        String y = this.value.replace("\\n", "").replace("\\t", "").replace("\"", "");
-        System.out.println(y);
+        String y = this.value.replace("\\n", "n").replace("\\t", "t").replace("\"", "");
         return y.length();
     }
 
