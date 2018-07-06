@@ -91,7 +91,7 @@ public class Calc4 {
         ctx.put("vector", Functions.VECTOR);
         ctx.put("makevector", Functions.MAKEVECTOR);
         ctx.put("get", Functions.GET);
-        ctx.put("SET", Functions.SET);
+        ctx.put("set", Functions.SET);
         return ctx;
     }
     

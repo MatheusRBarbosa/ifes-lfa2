@@ -11,7 +11,7 @@ import java.util.Vector;
  *
  * @author mathe
  */
-public class Vetor extends Literal{
+public class Vetor extends Vetorial{
     public final Vector value;
     
     public Vetor(Vector v){
@@ -30,9 +30,24 @@ public class Vetor extends Literal{
     }
     
     @Override
+    public Vector vectorValue() {
+        return this.value;
+    }
+    
+    @Override
     public String toString(){
         return String.valueOf(this.value);
     }
+    
+    public Literal get(int index){
+        return (Literal)this.value.get(index);
+    }
+    
+    public Literal set(Literal v, int index){
+        this.value.add(index, v);
+        return v;
+    }
+    
 
 
 }

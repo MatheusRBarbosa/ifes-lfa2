@@ -381,10 +381,10 @@ public class Functions {
         }        
     };
     
-    public static final Function GET = new SysFunction(3){
+    public static final Function GET = new SysFunction(2){
         @Override
         protected Expr fn(List<Literal> values) {
-            return makeVector(((Numeric)values.get(0)).intValue());
+            return makeVector(((Vetorial)values.get(0)).vectorValue(),((Numeric)values.get(1)).intValue());
         } 
     };
     

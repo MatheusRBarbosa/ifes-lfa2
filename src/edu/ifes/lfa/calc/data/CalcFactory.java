@@ -81,4 +81,15 @@ public class CalcFactory {
         return new Vetor(size);
     }
     
+    public static Expr makeVector(Vector v, Long index){
+        Integer i = index.intValue();
+        return new Vetor(v).get(i);
+    }
+    
+    public static Expr makeVector(Vector v, Literal value, Long index){
+        Integer i = index.intValue();
+        return new Vetor(v).set(value, i);
+
+    }
+    
 }
