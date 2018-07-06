@@ -379,7 +379,7 @@ public class Functions {
             for (Literal l: values) {
                 sb.append(((Text)l).stringValue());
             }
-            return makeCharSeq(sb.toString().replace("\\n", "").replace("\\t", "").replace("\"", ""));
+            return makeCharSeq(sb.toString());
         }        
     };
 }
