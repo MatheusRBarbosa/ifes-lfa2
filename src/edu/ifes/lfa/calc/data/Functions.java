@@ -5,6 +5,7 @@ import static edu.ifes.lfa.calc.data.CalcFactory.*;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Vector;
 
 /**
  *
@@ -250,6 +251,11 @@ public class Functions {
               Numeric b = (Numeric) y;
               eq = Objects.equals(a.decValue(), b.decValue());
           }
+          else if(x instanceof Vetorial && y instanceof Vetorial){
+              Vetorial a = (Vetorial) x;
+              Vetorial b = (Vetorial) y;
+              eq = Objects.equals(a.vectorValue(), b.vectorValue());
+          }
           else {
               eq = x.equals(y);
           }
@@ -381,5 +387,44 @@ public class Functions {
             }
             return makeCharSeq(sb.toString().replace("\\n", "").replace("\\t", "").replace("\"", ""));
         }        
+    };
+    public static final Function VECTOR = new SysFunction(0, Optional.empty()) {
+        @Override
+        protected Expr fn(List<Literal> values) {
+            Vector v = new Vector();
+            for(Literal valor: values){
+                v.add(valor);
+            }
+            return makeVector(v);
+        }        
+    };
+    
+    public static final Function MAKEVECTOR = new SysFunction(1) {
+        @Override
+        protected Expr fn(List<Literal> values) {
+            return makeVector(((Numeric)values.get(0)).intValue());
+        }        
+    };
+    
+    public static final Function GET = new SysFunction(2){
+        @Override
+        protected Expr fn(List<Literal> values) {
+            return makeVector(((Vetorial)values.get(0)).vectorValue(),((Numeric)values.get(1)).intValue());
+        } 
+    };
+    
+    public static final Function SET = new SysFunction(3){
+        @Override
+        protected Expr fn(List<Literal> values) {
+            return makeVector(((Vetorial)values.get(0)).vectorValue(),values.get(1), ((Numeric)values.get(2)).intValue());
+        } 
+    };
+    
+    public static final Function SIZE = new SysFunction(1){
+        @Override
+        protected Expr fn(List<Literal> values) {
+            Vector v = ((Vetorial)values.get(0)).vectorValue();
+            return makeInt(v.size());
+        } 
     };
 }
