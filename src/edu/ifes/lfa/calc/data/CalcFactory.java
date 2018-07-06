@@ -2,6 +2,7 @@ package edu.ifes.lfa.calc.data;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Vector;
 
 /**
  *
@@ -70,6 +71,26 @@ public class CalcFactory {
         UserFunction f = new UserFunction(params, body);
         Declaration d = new Declaration(name, f);
         return d;
+    }
+    
+    public static Expr makeVector(Vector v){
+        return new Vetor(v);
+    }
+    
+    public static Expr makeVector(Long size){
+        return new Vetor(size);
+    }
+    
+    public static Expr makeVector(Vector v, Long index){
+        Integer i = index.intValue();
+        return new Vetor(v).get(i);
+    }
+    
+    public static Expr makeVector(Vector v, Literal value, Long index){
+        Integer i = index.intValue();
+        new Vetor(v).set(value, i);
+        return null;
+
     }
     
 }

@@ -91,6 +91,11 @@ public class Calc4 {
         ctx.put("substring", Functions.SUBSTRING);
         ctx.put("concat", Functions.CONCAT);
         ctx.put("format", Functions.FORMAT);
+        ctx.put("vector", Functions.VECTOR);
+        ctx.put("makevector", Functions.MAKEVECTOR);
+        ctx.put("get", Functions.GET);
+        ctx.put("set", Functions.SET);
+        ctx.put("size", Functions.SIZE);
         return ctx;
     }
     
