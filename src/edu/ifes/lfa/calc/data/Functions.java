@@ -353,13 +353,33 @@ public class Functions {
         }        
     };
     
-    public static final Function CHARAT = new SysFunction(1, Optional.empty()) {
+    public static final Function CHARAT = new SysFunction(2) {
         @Override
         protected Expr fn(List<Literal> values) {
-            String x = unescapeString(values.get(0).toString()).replace("\\\"", "");
-            String y = Character.toString(x.charAt(0));
-            return makeCharSeq(y);
+            CharSeq y =  new CharSeq(((Text)values.get(0)).stringValue());
+            int z = Integer.valueOf(values.get(1).toString());
+            return makeCharSeq(y.charAt(z));
         }        
     };
     
+    public static final Function SUBSTRING = new SysFunction(3) {
+        @Override
+        protected Expr fn(List<Literal> values) {
+            CharSeq y =  new CharSeq(((Text)values.get(0)).stringValue());
+            int z = Integer.valueOf(values.get(1).toString());
+            int w = Integer.valueOf(values.get(2).toString());
+            return makeCharSeq(y.substring(z, w));
+        }        
+    };
+    
+    public static final Function CONCAT = new SysFunction(2, Optional.empty()) {
+        @Override
+        protected Expr fn(List<Literal> values) {
+            StringBuilder sb = new StringBuilder();
+            for (Literal l: values) {
+                sb.append(((Text)l).stringValue());
+            }
+            return makeCharSeq(sb.toString().replace("\\n", "").replace("\\t", "").replace("\"", ""));
+        }        
+    };
 }

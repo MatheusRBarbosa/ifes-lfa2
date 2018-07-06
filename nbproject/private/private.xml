@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Brenno/Desktop/Calc4/src/edu/ifes/lfa/calc/CalcParser.java</file>
-            <file>file:/C:/Users/Brenno/Desktop/Calc4/src/edu/ifes/lfa/calc/Calc4.java</file>
+            <file>file:/C:/Users/Brenno/Desktop/Calc4/src/edu/ifes/lfa/calc/data/Function.java</file>
+            <file>file:/C:/Users/Brenno/Desktop/Calc4/src/edu/ifes/lfa/calc/data/Text.java</file>
+            <file>file:/C:/Users/Brenno/Desktop/Calc4/src/edu/ifes/lfa/calc/data/Functions.java</file>
+            <file>file:/C:/Users/Brenno/Desktop/Calc4/src/edu/ifes/lfa/calc/data/CharSeq.java</file>
+            <file>file:/C:/Users/Brenno/Desktop/Calc4/src/edu/ifes/lfa/calc/Utils.java</file>
         </group>
     </open-files>
 </project-private>
