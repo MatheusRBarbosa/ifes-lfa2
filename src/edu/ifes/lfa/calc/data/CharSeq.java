@@ -18,7 +18,7 @@ public class CharSeq extends Text implements Comparable<CharSeq> {
 
     @Override
     public String show() {
-        return format("CharSeq(%s)", unescapeString(value));
+        return format("CharSeq(%s)", this.value);
     }
     
     @Override
@@ -50,8 +50,22 @@ public class CharSeq extends Text implements Comparable<CharSeq> {
     }
     
     public int len() {
-        String y = this.value.replace("\\n", "n").replace("\\t", "t").replace("\"", "");
+        String x = "x\ta";
+        System.out.println(x);
+        System.out.println(x.length());
+        String y = this.value.replace("\\n", "1").replace("\\t", "1").replace("\"", "");
         return y.length();
+    }
+    
+    public String charAt(int n) {
+        String y = this.value.replace("\\n", "").replace("\\t", "").replace("\"", "");
+        String z = Character.toString(y.charAt(n));
+        return z;
+    }
+    
+    public String substring(int ini, int fim) {
+        String y = this.value.replace("\\n", "").replace("\\t", "").replace("\"", "");
+        return y.substring(ini, fim);
     }
 
     @Override

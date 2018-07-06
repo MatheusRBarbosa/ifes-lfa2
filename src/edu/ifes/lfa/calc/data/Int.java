@@ -50,6 +50,5 @@ public class Int extends Numeric {
     @Override
     public String toString() {
         return String.valueOf(value);
-    }
-    
+    }  
 }

@@ -88,6 +88,9 @@ public class Calc4 {
         ctx.put("println", Functions.PRINTLN);
         ctx.put("length", Functions.LENGTH);
         ctx.put("charat", Functions.CHARAT);
+        ctx.put("substring", Functions.SUBSTRING);
+        ctx.put("concat", Functions.CONCAT);
+        ctx.put("format", Functions.FORMAT);
         ctx.put("vector", Functions.VECTOR);
         ctx.put("makevector", Functions.MAKEVECTOR);
         ctx.put("get", Functions.GET);
