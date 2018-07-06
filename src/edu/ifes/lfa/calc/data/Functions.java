@@ -380,4 +380,18 @@ public class Functions {
             return makeVector(((Numeric)values.get(0)).intValue());
         }        
     };
+    
+    public static final Function GET = new SysFunction(3){
+        @Override
+        protected Expr fn(List<Literal> values) {
+            return makeVector(((Numeric)values.get(0)).intValue());
+        } 
+    };
+    
+    public static final Function SET = new SysFunction(3){
+        @Override
+        protected Expr fn(List<Literal> values) {
+            return makeVector(((Numeric)values.get(0)).intValue());
+        } 
+    };
 }
