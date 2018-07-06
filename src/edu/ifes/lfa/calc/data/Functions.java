@@ -5,6 +5,7 @@ import static edu.ifes.lfa.calc.data.CalcFactory.*;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.Vector;
 
 /**
  *
@@ -362,4 +363,21 @@ public class Functions {
         }        
     };
     
+    public static final Function VECTOR = new SysFunction(0, Optional.empty()) {
+        @Override
+        protected Expr fn(List<Literal> values) {
+            Vector v = new Vector();
+            for(Literal valor: values){
+                v.add(valor);
+            }
+            return makeVector(v);
+        }        
+    };
+    
+    public static final Function MAKEVECTOR = new SysFunction(1) {
+        @Override
+        protected Expr fn(List<Literal> values) {
+            return makeVector(((Numeric)values.get(0)).intValue());
+        }        
+    };
 }
