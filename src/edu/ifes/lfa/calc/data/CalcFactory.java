@@ -88,7 +88,8 @@ public class CalcFactory {
     
     public static Expr makeVector(Vector v, Literal value, Long index){
         Integer i = index.intValue();
-        return new Vetor(v).set(value, i);
+        new Vetor(v).set(value, i);
+        return null;
 
     }
     

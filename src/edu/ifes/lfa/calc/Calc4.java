@@ -92,6 +92,7 @@ public class Calc4 {
         ctx.put("makevector", Functions.MAKEVECTOR);
         ctx.put("get", Functions.GET);
         ctx.put("set", Functions.SET);
+        ctx.put("size", Functions.SIZE);
         return ctx;
     }
     

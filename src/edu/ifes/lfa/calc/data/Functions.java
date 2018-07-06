@@ -251,6 +251,11 @@ public class Functions {
               Numeric b = (Numeric) y;
               eq = Objects.equals(a.decValue(), b.decValue());
           }
+          else if(x instanceof Vetorial && y instanceof Vetorial){
+              Vetorial a = (Vetorial) x;
+              Vetorial b = (Vetorial) y;
+              eq = Objects.equals(a.vectorValue(), b.vectorValue());
+          }
           else {
               eq = x.equals(y);
           }
@@ -391,7 +396,15 @@ public class Functions {
     public static final Function SET = new SysFunction(3){
         @Override
         protected Expr fn(List<Literal> values) {
-            return makeVector(((Numeric)values.get(0)).intValue());
+            return makeVector(((Vetorial)values.get(0)).vectorValue(),values.get(1), ((Numeric)values.get(2)).intValue());
+        } 
+    };
+    
+    public static final Function SIZE = new SysFunction(1){
+        @Override
+        protected Expr fn(List<Literal> values) {
+            Vector v = ((Vetorial)values.get(0)).vectorValue();
+            return makeInt(v.size());
         } 
     };
 }

@@ -43,9 +43,8 @@ public class Vetor extends Vetorial{
         return (Literal)this.value.get(index);
     }
     
-    public Literal set(Literal v, int index){
+    public void set(Literal v, int index){
         this.value.add(index, v);
-        return v;
     }
     
 
