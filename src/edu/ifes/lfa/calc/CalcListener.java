@@ -1,4 +1,4 @@
-// Generated from /home/jefferson/Dropbox/2018-1/lfa/workspace/Calc4/Calc.g4 by ANTLR 4.1
+
 package edu.ifes.lfa.calc;
 
 import java.util.List;

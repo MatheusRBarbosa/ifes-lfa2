@@ -4,8 +4,14 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/GitDocs/lfa2/src/edu/ifes/lfa/calc/data/IfExpr.java</file>
+<<<<<<< HEAD
             <file>file:/D:/GitDocs/lfa2/src/edu/ifes/lfa/calc/data/CalcFactory.java</file>
             <file>file:/D:/GitDocs/lfa2/src/edu/ifes/lfa/calc/CalcLexer.java</file>
+=======
+            <file>file:/D:/GitDocs/lfa2/src/edu/ifes/lfa/calc/Calc4.java</file>
+            <file>file:/D:/GitDocs/lfa2/src/edu/ifes/lfa/calc/data/Expr.java</file>
+            <file>file:/D:/GitDocs/lfa2/src/edu/ifes/lfa/calc/data/CalcFactory.java</file>
+>>>>>>> matheus
         </group>
     </open-files>
 </project-private>
