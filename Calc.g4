@@ -44,8 +44,10 @@ expr returns [Expr result]
 if_expr returns [Expr result]
     : IF b=bexpr THEN t=expr            
       {$result = makeIfThen($b.result, $t.result);}
-    | IF b=bexpr THEN t=expr (ELSIF x=bexpr THEN a=expr)+ (ELSE l=expr)?
-      {$result = makeIfThenElsIf($b.result, $t.result, $x.result, $a.result, $l.result);}
+    | IF b=bexpr THEN t=expr (ELSIF x=bexpr THEN a=expr)+
+      {$result = makeIfThenElsIf($b.result, $t.result, $x.result, $a.result);}
+    | IF b=bexpr THEN t=expr (ELSIF x=bexpr THEN a=expr)+ ELSE e=expr
+      {$result = makeIfThenElsIfElse($b.result, $t.result, $x.result, $a.result, $e.result);}
     | IF b=bexpr THEN t=expr ELSE e=expr
       {$result = makeIfThenElse($b.result, $t.result, $e.result);}
     ;

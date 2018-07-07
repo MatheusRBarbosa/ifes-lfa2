@@ -26,6 +26,10 @@ public class IfExpr extends ExpecialForm {
         this(cond, thenExpr, Optional.empty(), Optional.empty(), Optional.of(elseExpr));
     }
     
+    public IfExpr(Expr cond, Expr thenExpr, Expr elsIfExpr, Expr elsIfThenExpr){
+        this(cond, thenExpr, Optional.of(elsIfExpr), Optional.of(elsIfThenExpr), Optional.empty());
+    }
+    
     public IfExpr(Expr cond, Expr thenExpr, Expr elsIfExpr, Expr elsIfThenExpr, Expr elseExpr){
         this(cond, thenExpr, Optional.of(elsIfExpr), Optional.of(elsIfThenExpr), Optional.of(elseExpr));
     }

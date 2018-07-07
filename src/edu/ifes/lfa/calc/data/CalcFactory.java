@@ -51,8 +51,12 @@ public class CalcFactory {
         return new IfExpr(cond, thenExpr);
     }
 
-    public static Expr makeIfThenElsIf(Expr cond, Expr thenExpr, Expr elsIfExpr, Expr elsifThenExpr, Expr elseExpr){
-        return new IfExpr(cond, thenExpr, elsIfExpr, elsifThenExpr, elseExpr);
+    public static Expr makeIfThenElsIf(Expr cond, Expr thenExpr, Expr elsIfExpr, Expr elsIfThenExpr){
+        return new IfExpr(cond, thenExpr, elsIfExpr, elsIfThenExpr);
+    }
+    
+    public static Expr makeIfThenElsIfElse(Expr cond, Expr thenExpr, Expr elsIfExpr, Expr elsIfThenExpr, Expr elseExpr){
+        return new IfExpr(cond, thenExpr, elsIfExpr, elsIfThenExpr, elseExpr);
     }
     
     public static Expr makeIfThenElse(Expr cond, Expr thenExpr, Expr elseExpr) {
