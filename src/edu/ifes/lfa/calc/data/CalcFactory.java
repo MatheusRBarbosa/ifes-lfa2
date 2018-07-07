@@ -50,6 +50,8 @@ public class CalcFactory {
     public static Expr makeIfThen(Expr cond, Expr thenExpr) {
         return new IfExpr(cond, thenExpr);
     }
+
+    //public static Expr makeIfThenElsIf()
     
     public static Expr makeIfThenElse(Expr cond, Expr thenExpr, Expr elseExpr) {
         return new IfExpr(cond, thenExpr, elseExpr);
@@ -89,7 +91,7 @@ public class CalcFactory {
     public static Expr makeVector(Vector v, Literal value, Long index){
         Integer i = index.intValue();
         new Vetor(v).set(value, i);
-        return null;
+        return Expr.NONE;
 
     }
     

@@ -60,6 +60,7 @@ list_expr returns [LinkedList<> values]
 if_expr returns [Expr result]
     : IF b=bexpr THEN t=expr            
       {$result = makeIfThen($b.result, $t.result);}
+    | IF b=bexpr THEN t=expr (ELSEIF x=bexpr THEN y=expr)+ (ELSE w=expr)?
     | IF b=bexpr THEN t=expr ELSE e=expr
       {$result = makeIfThenElse($b.result, $t.result, $e.result);}
     ;
@@ -182,6 +183,7 @@ VERUM   : 'true';
 FALSUM  : 'false';
 IF      : 'if';
 THEN    : 'then';
+ELSIF   : 'elsif';
 ELSE    : 'else';
 WHILE   : 'while';
 DO      : 'do';
