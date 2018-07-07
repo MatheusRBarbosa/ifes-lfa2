@@ -371,10 +371,10 @@ public class Functions {
     public static final Function SUBSTRING = new SysFunction(3) {
         @Override
         protected Expr fn(List<Literal> values) {
-            CharSeq y =  new CharSeq(((Text)values.get(0)).stringValue());
+            CharSeq y =  new CharSeq(((Text)values.get(0)).toString());
             int z = Integer.valueOf(values.get(1).toString());
             int w = Integer.valueOf(values.get(2).toString());
-            return makeCharSeq(y.substring(z, w));
+            return makeCharSeq("\""+y.tiraAspasIniFim().substring(z, w)+"\"");
         }        
     };
     
@@ -383,7 +383,8 @@ public class Functions {
         protected Expr fn(List<Literal> values) {
             StringBuilder sb = new StringBuilder();
             for (Literal l: values) {
-                sb.append(((Text)l).stringValue());
+                CharSeq y =  new CharSeq(((Text)l).toString());
+                sb.append(y.tiraAspasIniFim());
             }
             return makeCharSeq(sb.toString());
         }        

@@ -23,7 +23,7 @@ public class CharSeq extends Text implements Comparable<CharSeq> {
     
     @Override
     public String toString() {
-        return (this.value.substring(1, this.value.length() - 1)).replace("\\n", " ").replace("\\t", "    ").replace("\\\"", "\"");
+        return (this.value).replace("\\n", "\n").replace("\\t", "\t").replace("\\\"", "\"");
     }
     
     @Override
@@ -56,18 +56,22 @@ public class CharSeq extends Text implements Comparable<CharSeq> {
     
     public String charAt(int n) {
         String y = this.value;
-        String z = Character.toString(y.charAt(n));
+        String z = "\"" + Character.toString(y.charAt(n)) + "\"";
         return z;
     }
     
     public String substring(int ini, int fim) {
-        String y = this.value;
-        return y.substring(ini, fim);
+        String z = this.value.substring(ini, fim);
+        return z;
     }
 
     @Override
     public String stringValue() {
-        return (this.value.substring(1, this.value.length() - 1)).replace("\\n", " ").replace("\\t", "    ").replace("\\\"", "\"");
+        return (this.value).replace("\\n", "\n").replace("\\t", "\t").replace("\"", "");
+    }
+    
+    public String tiraAspasIniFim(){
+        return this.value.substring(1, this.value.length()-1);
     }
 
 }
