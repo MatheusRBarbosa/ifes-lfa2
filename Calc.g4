@@ -39,28 +39,13 @@ expr returns [Expr result]
     | i=if_expr         {$result = $i.result;}
     | w=while_expr      {$result = $w.result;}
     | k=block_expr      {$result = $k.result;}
-    | l=list_expr       {$result = $l.values;}
     ;
-list_expr returns [LinkedList<> values]
-    @init {
-        values = new LinkedList<>();
-    }
-    : LCOL 
-    (
-      STRING            {$values.add($STRING.text);}
-    | INTEGER           {$values.add($INTEGER.text);}
-    | FLOAT             {$values.add($FLOAT.text);}
-    )* 
-    (
-      COMMA STRING      {$values.add($STRING.text);}
-    | INTEGER           {$values.add($INTEGER.text);}
-    | FLOAT             {$values.add($FLOAT.text);}
-    )*
-    RCOL;
+
 if_expr returns [Expr result]
     : IF b=bexpr THEN t=expr            
       {$result = makeIfThen($b.result, $t.result);}
-    | IF b=bexpr THEN t=expr (ELSEIF x=bexpr THEN y=expr)+ (ELSE w=expr)?
+    | IF b=bexpr THEN t=expr (ELSIF x=bexpr THEN a=expr)+ (ELSE l=expr)?
+      {$result = makeIfThenElsIf($b.result, $t.result, $x.result, $a.result, $l.result);}
     | IF b=bexpr THEN t=expr ELSE e=expr
       {$result = makeIfThenElse($b.result, $t.result, $e.result);}
     ;
@@ -188,8 +173,6 @@ ELSE    : 'else';
 WHILE   : 'while';
 DO      : 'do';
 DEF     : 'def';
-LCOL    : '[';
-RCOL    : ']';
 
 fragment DIGIT  : [0-9] ;
 
