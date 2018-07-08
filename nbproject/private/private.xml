@@ -2,8 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+<<<<<<< HEAD
+        <group/>
+=======
         <group>
             <file>file:/D:/GitDocs/lfa2/src/edu/ifes/lfa/calc/Calc4.java</file>
         </group>
+>>>>>>> 5273103af93097df7b3c56902289fc84a37567f6
     </open-files>
 </project-private>

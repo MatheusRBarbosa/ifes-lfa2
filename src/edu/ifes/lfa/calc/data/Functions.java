@@ -2,6 +2,8 @@ package edu.ifes.lfa.calc.data;
 
 import static edu.ifes.lfa.calc.Utils.unescapeString;
 import static edu.ifes.lfa.calc.data.CalcFactory.*;
+import java.util.ArrayList;
+import java.util.Formatter;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -176,17 +178,6 @@ public class Functions {
                 System.out.printf("%s ", l);
             }
             System.out.println();
-            return makeInt(values.size());
-        }        
-    };
-    
-    public static final Function FORMAT = new SysFunction(1, Optional.empty()) {
-        @Override
-        protected Expr fn(List<Literal> values) {
-            CharSeq s = (CharSeq) values.get(0);
-            values.remove(0);
-            Object[] xs = values.toArray();
-//            String fmt = format(s.value, xs);
             return makeInt(values.size());
         }        
     };
@@ -389,6 +380,36 @@ public class Functions {
             return makeCharSeq(sb.toString());
         }        
     };
+    
+    public static final Function FORMAT = new SysFunction(1, Optional.empty()) {
+        @Override
+        protected Expr fn(List<Literal> values) {
+            CharSeq s = (CharSeq) values.get(0);
+            values.remove(0);
+            Object[] objetos = new Object[values.size()];
+            int cont = 0;
+            for(Literal l: values){
+                if(l instanceof Int){
+                    Long i = ((Int)l).intValue();
+                    objetos[cont] = i;
+                }
+                if(l instanceof Decimal){
+                    double d = ((Decimal) l).decValue();
+                    objetos[cont] = d;
+                } 
+                if(l instanceof CharSeq){
+                    String str = l.toString();
+                    System.out.println("entrou3");
+                    objetos[cont] = str;
+                }
+                cont++;
+            }
+            Formatter formatter = new Formatter();
+            String fmt = formatter.format(s.toString(), objetos).toString();
+            return makeCharSeq(fmt);
+        }        
+    };
+    
     public static final Function VECTOR = new SysFunction(0, Optional.empty()) {
         @Override
         protected Expr fn(List<Literal> values) {
