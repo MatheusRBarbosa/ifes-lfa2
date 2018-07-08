@@ -64,7 +64,7 @@ public class CharSeq extends Text implements Comparable<CharSeq> {
         String z = this.value.substring(ini, fim);
         return z;
     }
-
+    
     @Override
     public String stringValue() {
         return (this.value).replace("\\n", "\n").replace("\\t", "\t").replace("\"", "");
@@ -73,5 +73,4 @@ public class CharSeq extends Text implements Comparable<CharSeq> {
     public String tiraAspasIniFim(){
         return this.value.substring(1, this.value.length()-1);
     }
-
 }
