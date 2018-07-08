@@ -20,7 +20,7 @@ public class Vetor extends Vetorial{
     public Vetor(Long size){
         value = new Vector();
         for(int i=0;i<size;i++){
-            this.value.add(null);
+            this.value.add(Expr.NONE);
         }
     }
     
